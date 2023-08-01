@@ -162,7 +162,7 @@ return function(opts)
                             "{" .. inserted_file .. entry.ordinal:gsub("^(%W+)%s+.+", "%1 ") .. entry.linkable:gsub(
                                 "[%*#%|_]",
                                 "\\%1"
-                            ) .. "}" .. "[" .. entry.linkable:gsub(":$", "") .. "]",
+                            ) .. "}",
                         }, "c", false, true)
                     else
                         vim.api.nvim_put({
