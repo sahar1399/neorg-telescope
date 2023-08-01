@@ -52,6 +52,11 @@ local function get_linkables(bufnr, file, workspace)
         if not vim.tbl_isempty(marker_or_drawer) then
             table.insert(ret, { line = i, linkable = marker_or_drawer[2], display = marker_or_drawer[1], file = file })
         end
+
+        local definition = { line:match("^%s*(%$%$?%s+(.+))$") }
+        if not vim.tbl_isempty(definition) then
+            table.insert(ret, { line = i, linkable = definition[2], display = definition[1], file = file })
+        end
     end
 
     return ret
